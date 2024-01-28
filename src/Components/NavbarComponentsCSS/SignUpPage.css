@@ -53,7 +53,8 @@
 
 .nonNameFields input[type=text],
 .nonNameFields input[type=email],
-.nonNameFields input[type=password] {
+.nonNameFields input[type=password],
+.nonNameFields input[type=number] {
     padding-left: 1rem;
 }
 
