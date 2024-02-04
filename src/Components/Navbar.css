@@ -1,69 +1,125 @@
-
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #333;
-    color: white;
-  }
-  
-  .navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+  height: 2rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.navbar-links-brandname a {
+  text-decoration: none;
+  color: white;
+  margin: 0 1rem;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  margin: 0 1rem;
+  font-size: 1rem;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
   .navbar-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 1rem;
+    display: block;
   }
 
-  .navbar-links-brandname a {
-    text-decoration: none;
-    color: white;
-    margin: 0 1rem;
-    font-size: larger;
-    font-weight: bold;
-  }
-  
   .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    text-align: center;
+  }
+
+  .navbar-links.active {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
   }
-  
-  .navbar-links a {
-    text-decoration: none;
-    color: white;
-    margin: 0 1rem;
-  }
-  
-  .navbar-links a:hover {
-    text-decoration: underline;
-  }
-  
-  @media (max-width: 768px) {
-    .navbar-toggle {
-      display: block;
-    }
-  
-    .navbar-links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background-color: #333;
-      text-align: center;
-    }
-  
-    .navbar-links.active {
-      display: flex;
-    }
-  }
-  
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button style */
+.dropbtn {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  margin: 0 1rem 0 0;
+  font-size: 0.9rem;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall {
+  padding: 0rem;
+  /* Adjust the value as needed */
+}
+
+.navbar .dropdown .MuiIconButton-root .MuiAvatar-root {
+  width: 32px;
+  height: 32px;
+}

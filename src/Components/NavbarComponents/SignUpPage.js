@@ -1,102 +1,46 @@
 // SignUpPage.js
 import React from 'react';
 import '../NavbarComponentsCSS/SignUpPage.css'
-import { useState,setState } from 'react';
-import axios from 'axios';
+import { handleCloseForRegistrationStatus } from "../../Redux/Store";
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import SignUpForm from '../SignUpComponents/SignUpForm';
+import { useDispatch, useSelector } from 'react-redux';
+import SignUpModal from '../SignUpComponents/SignUpModal';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 const SignUpPage = () => {
-  var responseStatusCode = null;
+  const dispatch = useDispatch();
 
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    emailId: '',
-    password: '',
-    confirmPassword: '',
-    phoneNumber: '',
-    termsAccepted: false,
-  });
+  const { openForRegistrationStatus, showSignUpForm, registrationStatus } = useSelector(state => state);
 
-  const handleInputChange = (event) => {
-    const { name, value, type, checked } = event.target;
-    
-    var newValue = "";
-    if(type==='text' && name==='firstName') {
-      newValue = value;
-    } else if(type==='text' && name==='lastName') {
-      newValue = value;
-    } else if(type==="email") {
-      newValue = value;
-    } else if(type==="password") {
-      newValue = value;
-    } else if(type==="checkbox") {
-      newValue=checked;
-    } else {
-      newValue = value;
-    }
 
-    setFormData({
-      ...formData,
-      [name]: newValue,
-    });
-  };
-
-  const [registrationStatus, setRegistrationStatus] = useState(null);
-
-  const printData = async () => {
-    console.log(formData)
-    try {
-      // Perform validation here if needed
-      console.log(formData)
-      // Make a POST request using Axios
-      const response = await axios.post('http://localhost:8084/users', formData);
-
-      // Handle the response as needed
-      debugger;
-      if (response.status === 200) {
-        // Registration successful, update the state to show the message
-        setRegistrationStatus('Registration Successful');
-      }
-      console.log('Data successfully submitted:', response.data);
-    } catch (error) {
-      // Handle errors
-      console.error('Error submitting data:', error);
-    }
-  }
 
   return (
     <div className="window">
       <div className='signUpModal'>
         <div className='paddingModal'>
-        {registrationStatus && (
+          {registrationStatus && (
             <div className="registrationMessage">
-              <p>{registrationStatus}</p>
+              <SignUpModal />
             </div>
           )}
-          {!registrationStatus && (
+          {(!registrationStatus || showSignUpForm) && (
             <div>
-          <div className='nameFields'>
-            <input type='text' placeholder='First Name' name='firstName' value={formData.firstName} onChange={handleInputChange}/>
-            <input type='text' placeholder='Last Name' name='lastName' value={formData.lastName} onChange={handleInputChange}/>
-          </div>
-          <div className='nonNameFields'>
-            <input type='email' placeholder='Email ID' name='emailId' value={formData.emailId} onChange={handleInputChange}/>
-            <input type='password' placeholder='Password' name='password' value={formData.password} onChange={handleInputChange}/>
-            <input type='password' placeholder='Confirm Password' name='confirmPassword' value={formData.confirmPassword} onChange={handleInputChange}/>
-            <input type='number' placeholder='Phone No.' name='phoneNumber' value={formData.phoneNumber} onChange={handleInputChange}/>
-          </div>
-
-          <div className="termsConditions">
-            <h4>Terms and Conditions</h4>
-            <div className='abc'>
-              <input type="checkbox" name='termsAccepted' value={formData.termsAccepted} onChange={handleInputChange}/>
-              <label>I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</label>
-            </div>
-          </div>
-
-          <div className='formButtons'>
-            <input className='button-17' type='button' value="Sign Up" onClick={printData} disabled={!formData.termsAccepted}></input>
-          </div></div>)}
+              <SignUpForm />
+            </div>)}
         </div>
       </div>
     </div>
