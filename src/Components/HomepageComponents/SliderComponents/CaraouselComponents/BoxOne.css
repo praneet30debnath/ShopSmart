@@ -1,0 +1,28 @@
+.picForHer {
+    height: 200%;
+    display: flex;
+}
+
+.denimHerPic {
+    height: 60%;
+}
+
+.denimHimPic {
+    height: 50%;
+
+}
+
+.parentTextForDenimHer {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 2%;
+}
+
+.exactPositionForText {
+    height: 40%;
+    width: 100%;
+    padding-bottom: 10%;
+}

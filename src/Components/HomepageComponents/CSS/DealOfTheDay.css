@@ -1,0 +1,155 @@
+.parentDealOfTheDay {
+    display: flex;
+    height: calc(100vh - 15rem);
+    padding-top: 3rem;
+    max-height: 50rem;
+}
+
+.dealOneParent {
+    width: 65%;
+    margin: 0 1rem;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background: rgb(242, 242, 242);
+    background: linear-gradient(90deg, rgba(242, 242, 242, 1) 0%, rgba(209, 209, 209, 1) 82%, rgba(221, 221, 221, 1) 100%);
+    position: relative;
+    overflow: hidden;
+    min-width: 60rem;
+}
+
+.title {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 5rem;
+}
+
+.denimHeading {
+    margin: 0;
+    width: 100%;
+    color: rgb(255, 81, 0);
+    font-style: italic;
+    font-weight: bold;
+
+}
+
+.denimHeaderOne {
+    margin: 0;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.denimDesc {
+    margin: 0;
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.dealsInOneColumn {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem 0 0;
+}
+
+.dealTwo {
+    height: 70%;
+    margin: 0 0 1rem 0;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background: rgb(242, 242, 242);
+    background: linear-gradient(90deg, rgba(242, 242, 242, 1) -100%, rgba(209, 209, 209, 1) 82%, rgba(242, 242, 242, 1) 150%);
+    display: flex;
+    justify-content: center;
+}
+
+.title2 {
+    padding-left: 1.5rem;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.childDealTwo {
+    margin-left: 2rem;
+    width: 100%;
+    height: 100%;
+    background-image: url(../Pics/elec-1.png);
+    background-size: contain;
+    background-position: right center;
+    /* Adjusted background position */
+    background-repeat: no-repeat;
+    position: relative;
+    justify-content: right;
+    display: flex;
+}
+
+.dealThree {
+    height: 30%;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background: rgb(242, 242, 242);
+    background: linear-gradient(90deg, rgba(242, 242, 242, 1) -100%, rgba(209, 209, 209, 1) 82%, rgba(242, 242, 242, 1) 150%);
+    display: flex;
+    justify-content: center;
+}
+
+/* CSS */
+.denimShopNow {
+    width: 1rem;
+}
+
+.shopNowButton {
+    appearance: button;
+    background-color: #000;
+    background-image: none;
+    border: 1px solid #000;
+    border-radius: 4px;
+    box-shadow: #fff 4px 4px 0 0, #000 4px 4px 0 1px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 10px;
+    margin: 0 5px 10px 0;
+    overflow: visible;
+    padding: 10px 30px;
+    text-align: center;
+    text-transform: none;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.shopNowButton:focus {
+    text-decoration: none;
+}
+
+.shopNowButton:hover {
+    text-decoration: none;
+}
+
+.shopNowButton:active {
+    box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+    outline: 0;
+}
+
+.shopNowButton:not([disabled]):active {
+    box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+    transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+    .shopNowButton {
+        padding: 10px 30px;
+    }
+}

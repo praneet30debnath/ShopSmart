@@ -1,0 +1,12 @@
+.sliderParent {
+    position: absolute;
+    top: 5;
+    width: 98%; /* Adjust as necessary */
+    height: 90%; /* Adjust as necessary */
+    background-image: url(../../Pics/denim-2.png);
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    justify-content: right;
+    display: flex;
+}
