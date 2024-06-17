@@ -35,6 +35,7 @@
 .buttonOuter {
     display: flex;
     width: 50%;
+    justify-content: center;
 }
 
 .buttonInner {
