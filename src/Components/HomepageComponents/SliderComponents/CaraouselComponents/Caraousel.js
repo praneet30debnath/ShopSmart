@@ -55,16 +55,22 @@ const Carousel = () => {
                         {...controlProps1('c')}
                         sx={{
                             '& .MuiSvgIcon-root': {
-                                fontSize: 28,
+                                fontSize: 20,
                             },
+                            '&.Mui-checked': {
+                                color: '#FF5100',
+                            }
                         }}
                     />
                     <Radio
                         {...controlProps2('c')}
                         sx={{
                             '& .MuiSvgIcon-root': {
-                                fontSize: 28,
+                                fontSize: 20,
                             },
+                            '&.Mui-checked': {
+                                color: '#FF5100',
+                            }
                         }}
                     />
             </div>
