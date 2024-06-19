@@ -1,14 +1,23 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const initialState = {
+  value: 5,
+  isLoggedIn: false,
+  registrationStatus: null,
+  openForRegistrationStatus: false,
+  showSignUpForm: false
+};
 
 const counterSlice = createSlice({
   name: 'counter',
-  initialState: {
-    value: 5,
-    isLoggedIn: false,
-    registrationStatus: null,
-    openForRegistrationStatus: false,
-    showSignUpForm: false
-  },
+  initialState,
   reducers: {
     incremented: state => {
       state.value += 1;
@@ -30,12 +39,19 @@ const counterSlice = createSlice({
     },
     handleShowSignUpForm: (state, action) => {
       state.showSignUpForm = action.payload.value
+    },
+    reset: state => {
+      Object.assign(state, initialState);
     }
   }
 });
 
-export const { incremented, decremented, loggedIn, setRegistrationStatus, handleOpenForRegistrationStatus, handleCloseForRegistrationStatus, handleShowSignUpForm } = counterSlice.actions;
+const persistedReducer = persistReducer(persistConfig, counterSlice.reducer);
+
+export const {reset, incremented, decremented, loggedIn, setRegistrationStatus, handleOpenForRegistrationStatus, handleCloseForRegistrationStatus, handleShowSignUpForm } = counterSlice.actions;
 
 export const store = configureStore({
-  reducer: counterSlice.reducer
+  reducer: persistedReducer
 });
+
+export const persistor = persistStore(store);

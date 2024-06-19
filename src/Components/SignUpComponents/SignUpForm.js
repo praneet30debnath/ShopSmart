@@ -1,7 +1,6 @@
-import React from "react";
-import { useState } from 'react';
 import axios from 'axios';
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { handleOpenForRegistrationStatus, handleShowSignUpForm, setRegistrationStatus } from "../../Redux/Store";
 
 const SignUpForm = () => {

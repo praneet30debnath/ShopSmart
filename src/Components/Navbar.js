@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
-import './Navbar.css'; // You can create a separate CSS file for styling
 import { useDispatch, useSelector } from 'react-redux';
+import shopSmartLogo from './HomepageComponents/Pics/cropShopSmartLogo.png';
+import './Navbar.css'; // You can create a separate CSS file for styling
 
 
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Tooltip from '@mui/material/Tooltip';
+import Logout from '@mui/icons-material/Logout';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
+import Avatar from '@mui/material/Avatar';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import { loggedIn } from '../Redux/Store';
 
-import CircularProgress from '@mui/material/CircularProgress';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,9 +42,12 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className={`navbar-links-brandname ${isOpen ? 'active' : ''}`}><a href="/" onClick={toggleNavbar}>
-        ShopSmart
-      </a></div>
+      <div className={`navbar-links-brandname ${isOpen ? 'active' : ''}`}>
+        <a href="/" onClick={toggleNavbar} style={{margin: "0.2rem 0 0 0"}}>
+          <img src={shopSmartLogo} alt="" className='shopSmartLogo' />
+        </a>
+        <a href="/" onClick={toggleNavbar}>ShopSmart</a>
+      </div>
 
       <button className="navbar-toggle" onClick={toggleNavbar}>
         Menu

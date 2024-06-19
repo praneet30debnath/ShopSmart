@@ -1,10 +1,10 @@
 import React from "react";
-import './styles/SignUpModal.css'
 import { useDispatch, useSelector } from "react-redux";
-import { setRegistrationStatus, handleCloseForRegistrationStatus } from "../../Redux/Store";
-import warning from './pics/warning.png'
-import success from './pics/checked.png'
 import { useNavigate } from "react-router-dom";
+import { handleCloseForRegistrationStatus, setRegistrationStatus } from "../../Redux/Store";
+import success from './pics/checked.png';
+import warning from './pics/warning.png';
+import './styles/SignUpModal.css';
 
 const SignUpModal = () => {
     const dispatch = useDispatch();

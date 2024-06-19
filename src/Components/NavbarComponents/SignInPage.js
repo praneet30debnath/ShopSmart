@@ -1,11 +1,10 @@
 // SignInPage.js
-import React from 'react';
-import '../NavbarComponentsCSS/SignInPage.css'
-import { useState } from 'react';
 import axios from 'axios';
-import { UseSelector, useDispatch } from 'react-redux';
-import { loggedIn } from '../../Redux/Store';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { loggedIn } from '../../Redux/Store';
+import '../NavbarComponentsCSS/SignInPage.css';
 
 const SignInPage = () => {
 

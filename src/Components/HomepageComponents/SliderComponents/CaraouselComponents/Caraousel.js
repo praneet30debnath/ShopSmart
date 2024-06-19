@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BoxOne from "./BoxOne";
 import BoxTwo from "./BoxTwo";
 import './Box.css';
@@ -6,6 +6,26 @@ import Radio from '@mui/material/Radio';
 
 const Carousel = () => {
     const [slide, setSlide] = useState(false);
+    const [intervalId, setIntervalId] = useState(null);
+
+    useEffect(() => {
+        if (intervalId) {
+            clearInterval(intervalId);
+        }
+
+        // Set up a new interval
+        const id = setInterval(() => {
+            handleSlide();
+        }, 4000); // Change slide every 5 seconds
+
+        // Save the interval ID
+        setIntervalId(id);
+
+        // Clean up function
+        return () => {
+            clearInterval(id);
+        };
+    }, [slide]);
 
     const [selectedValue1, setSelectedValue1] = React.useState('c');
     const [selectedValue2, setSelectedValue2] = React.useState('a');
@@ -40,6 +60,13 @@ const Carousel = () => {
 
     const handleSlide = () => {
         setSlide(!slide);
+        if (slide) {
+            setSelectedValue1('c');
+            setSelectedValue2('a');
+        } else {
+            setSelectedValue1('a');
+            setSelectedValue2('c');
+        }
     };
 
     return (
