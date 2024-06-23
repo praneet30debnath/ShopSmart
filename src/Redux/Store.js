@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage'; // defaults to localStorage for
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['isSignInFailure']
 };
 
 const initialState = {
@@ -12,7 +13,8 @@ const initialState = {
   isLoggedIn: false,
   registrationStatus: null,
   openForRegistrationStatus: false,
-  showSignUpForm: false
+  showSignUpForm: false,
+  isSignInFailure: false
 };
 
 const counterSlice = createSlice({
@@ -42,13 +44,16 @@ const counterSlice = createSlice({
     },
     reset: state => {
       Object.assign(state, initialState);
+    },
+    toggleSignInFailure: (state, action) => {
+      state.isSignInFailure = action.payload.value
     }
   }
 });
 
 const persistedReducer = persistReducer(persistConfig, counterSlice.reducer);
 
-export const {reset, incremented, decremented, loggedIn, setRegistrationStatus, handleOpenForRegistrationStatus, handleCloseForRegistrationStatus, handleShowSignUpForm } = counterSlice.actions;
+export const {reset, incremented, decremented, loggedIn, setRegistrationStatus, handleOpenForRegistrationStatus, handleCloseForRegistrationStatus, handleShowSignUpForm, toggleSignInFailure } = counterSlice.actions;
 
 export const store = configureStore({
   reducer: persistedReducer

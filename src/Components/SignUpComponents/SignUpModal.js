@@ -6,6 +6,11 @@ import success from './pics/checked.png';
 import warning from './pics/warning.png';
 import './styles/SignUpModal.css';
 
+const images = [success, warning];
+images.forEach(image => {
+    new Image().src = image;
+});
+
 const SignUpModal = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();

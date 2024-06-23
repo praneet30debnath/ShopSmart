@@ -41,8 +41,14 @@ const SignUpForm = () => {
 
     const submitData = async () => {
         try {
-            console.log(formData)
-            const response = await axios.post('http://localhost:8084/users', formData, {
+            console.log(formData);
+            let apiUrl;
+            if (process.env.NODE_ENV === 'development') {
+                apiUrl = 'http://localhost:8084'; // Example: Replace with your local API URL
+            } else {
+                apiUrl = 'https://shopsmart-backend.onrender.com'; // Example: Replace with your deployed API URL
+            }
+            const response = await axios.post(`${apiUrl}/users`, formData, {
                 validateStatus: function (status) {
                     return status >= 200 && status <= 500; // Resolve only if the status code is between 200 and 499
                 },
@@ -52,7 +58,7 @@ const SignUpForm = () => {
                 handleRegistrationStatus('Registration Successful|Hi ' + formData.firstName + ', Welcome to ShopSmart. Get varities of products to buy online|Explore');
                 setFormData(emptyForm);
             } else {
-                if (response.data.message.includes("unique_email_constraint")) {
+                if (response.data === "Duplicate entry: Email already exists") {
                     handleRegistrationStatus("Oops...!!|Email Already Exists. Please use a different Email ID or Login with the same Email ID|Try Again");
                     dispatch(handleShowSignUpForm({ value: true }));
                 } else {

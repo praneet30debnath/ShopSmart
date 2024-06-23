@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     background: radial-gradient(circle at -8.9% 51.2%, rgb(255, 124, 0) 0%, rgb(255, 124, 0) 15.9%, rgb(255, 163, 77) 15.9%, rgb(255, 163, 77) 24.4%, rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
+    position: relative;
 }
 
 .signInModal {
@@ -11,6 +12,8 @@
     height: 33rem;
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .paddingModal {
@@ -107,4 +110,14 @@
 
 .button-17:disabled {
     box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.signInFailure {
+    position: absolute;
+    top: 25%;
+    left: 50;
+    width: 30%;
+    height: 50%;
+    background-color: rgba(255, 0, 0, 0.5);
+    z-index: 2;
 }
